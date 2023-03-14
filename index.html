@@ -1,0 +1,76 @@
+<html>
+  <head>
+    <title>Weather Report</title>
+  </head>
+  <style>
+      body {background-image: url('image.jpg');
+      background-size: 100% 100%; display: grid; grid-template-columns: auto 1fr;}
+      
+      .clock {
+          align-self: baseline;
+      }
+
+        #timedate {
+          font: small-caps lighter 43px/150% "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+          text-align:left;
+          width: 50%;
+          margin: 40px auto;
+          color:#fff;
+          border-left: 3px solid #ed1f24;
+          padding: 20px;
+        }
+      
+  </style>
+  <body {background-image: url('image.jpg');background-size: 100% 100%;} onLoad="initClock()">
+      <div style='text-align: center;' class="clock" >
+          <div id="timedate">
+            <a id="mon">January</a>
+            <a id="d">1</a>,
+            <a id="y">0</a><br />
+            <a id="h">12</a> :
+            <a id="m">00</a>:
+            <a id="s">00</a>
+          </div>
+          <!--<canvas id="canvas" width="250" height="250" style="background-color:transparent;"></canvas>-->
+      </div>
+      <div>
+          <h1 style='text-align: center;text-transform: uppercase;'>Weather Report Application</h1>
+          <form style='text-align: center;' action="WeatherReport" method="get">
+              <input type="text" name="city" placeholder="Enter City"style='padding: 5px 10px; border-radius: 5px; margin: 2.5px;border: none; font-size: 1.25rem;'><br>
+              <input type="text" name="email" placeholder="Enter Email" style='padding: 5px 10px; border-radius: 5px; margin: 2.5px;border: none; font-size: 1.25rem;'>
+              <input type="submit" style='display: block; color: #fff; border: none; background: #000;font-size: 1.25rem; position: relative; left: 50%; transform: translate(-50%);margin-top: 5px; padding: 5px 10px; border-radius: 5px;' value="Get Report"'>
+          </form>
+      </div>
+      <script>
+// START CLOCK SCRIPT
+Number.prototype.pad = function(n) {
+  for (var r = this.toString(); r.length < n; r = 0 + r);
+  return r;
+};
+
+function updateClock() {
+  var now = new Date();
+  var milli = now.getMilliseconds(),
+    sec = now.getSeconds(),
+    min = now.getMinutes(),
+    hou = now.getHours(),
+    mo = now.getMonth(),
+    dy = now.getDate(),
+    yr = now.getFullYear();
+  var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  var tags = ["mon", "d", "y", "h", "m", "s"],
+    corr = [months[mo], dy, yr, hou.pad(2), min.pad(2), sec.pad(2)];
+  for (var i = 0; i < tags.length; i++)
+    document.getElementById(tags[i]).firstChild.nodeValue = corr[i];
+}
+
+function initClock() {
+  updateClock();
+  window.setInterval("updateClock()", 1);
+}
+
+// END CLOCK SCRIPT
+</script></div>
+   
+  </body>
+</html>
