@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
 package r1;
 
 import java.io.*;
@@ -19,10 +15,7 @@ import jakarta.mail.internet.*;
 import jakarta.mail.Session;
 import jakarta.mail.Transport;
 import java.util.Properties;
-/**
- *
- * @author akhil
- */
+
 public class WeatherReport extends HttpServlet {
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
